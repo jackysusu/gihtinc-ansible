@@ -1,0 +1,16 @@
+---
+- name: create file
+  hosts: web*
+  become: yes
+  tasks:
+    - name: create file 
+      file:
+        path: /tmp/ghtinc-test
+        state: touch
+        mode: '0644'
+    - name: Install the package
+      apt:
+        pkg:
+        - nodejs
+        - npm
+        update_cache: yes

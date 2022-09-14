@@ -1,0 +1,9 @@
+---
+- name: Update and Upgrade APT packages
+  hosts: web*
+  tasks:
+    - name: Update and upgrade apt packages
+      become: yes
+      apt:
+        update_cache: yes
+        upgrade: 'yes'
