@@ -1,5 +1,5 @@
 ---
-- name: create file
+- name: apt install and create file
   hosts: web*
   become: yes
   tasks:
@@ -8,6 +8,7 @@
         path: /tmp/ghtinc-test
         state: touch
         mode: '0644'
+        
     - name: Install the package
       apt:
         pkg:

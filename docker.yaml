@@ -1,0 +1,15 @@
+---
+- name: Docker
+  hosts: web*
+  tasks:
+    - name: Pull an image
+      community.docker.docker_image:
+        name: prom/blackbox-exporter
+        source: pull
+        pull:
+          platform: amd64
+
+    - name: run container
+      docker_container:
+        name: blackbox
+        image: prom/blackbox-exporter
